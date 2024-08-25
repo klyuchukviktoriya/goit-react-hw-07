@@ -1,13 +1,14 @@
 import s from "./Contact.module.css"
 import { BiUser, BiPhone } from "react-icons/bi"
 import { useDispatch, useSelector } from "react-redux"
-import { deleteContact, selectContacts } from "../../redux/contactsSlice";
+import { selectContacts } from "../../redux/contactsSlice";
+import { deleteContact } from "../../redux/contactsOps";
 export default function Contact({ id }) {
 
     const dispatch = useDispatch();
     const contacts = useSelector(selectContacts)
     const contact = contacts.find(contact => contact.id === id);
-    // if (!contact) return null; 
+
     return (
         <div className={s.wrapper}>
             <div className={s.contact}>
